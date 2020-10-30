@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -9,6 +10,8 @@ public class CharacterController : MonoBehaviour
     public Rigidbody2D bulletB;
 
     public Rigidbody2D enemy1;
+
+    private List<Rigidbody2D> bullets;
 
     
 
@@ -23,23 +26,17 @@ public class CharacterController : MonoBehaviour
 
     public float cooldown = 0.3f;
     public Sprite[] projectileAttackSprite;
-    /*public float FireRate = 0.000003f;*/
+
 
     public float NextFire = 0 ;
 
     public int nbEnemy = 1;
 
-    /*[Header("Audio")]
-    public AudioClip lootCandy;
-    public AudioClip shootCandy;
-    public AudioClip deathClip;
-    private AudioSource audio;*/
 
     void Start()
     {
         manager = GameManager.Instance;
         NextFire = Time.time;
-        //manager.doudouNb = 0;
         //audio = transform.GetComponent<AudioSource>();
         
     }
@@ -51,13 +48,11 @@ public class CharacterController : MonoBehaviour
         {
             FireR();
             NextFire = Time.time;
-            //NextFire = Time.time + FireRate;
         }
         if (Input.GetButtonDown("Fire1") && Time.time > NextFire + cooldown)
         {
             FireB();
             NextFire = Time.time;
-           // NextFire = Time.time + FireRate;
         }
         if(nbEnemy > 0){
             SpawnEnemy1();
@@ -67,7 +62,6 @@ public class CharacterController : MonoBehaviour
 
     void FireR()
     {
-        //Debug.Log("Fire");
         Debug.Log(Input.mousePosition);
 
         Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
@@ -82,20 +76,16 @@ public class CharacterController : MonoBehaviour
             
 
        direction.Normalize();
-
-        //Debug.Log(direction);
-        //int projectileAttackRandomizer = 1;
         Rigidbody2D ProjoR = Instantiate(bulletR, transform.position, transform.rotation);
+        //bullets.Add(ProjoR);
         ProjoR.AddForce(direction * bulletSpeed);
         ProjoR.transform.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
-        //ProjoR.GetComponent<SpriteRenderer>().sprite = projectileAttackSprite[projectileAttackRandomizer];
         //audio.PlayOneShot(shootCandy);
         Destroy(ProjoR.transform.gameObject, lifespan);
     }
 
     void FireB()
     {
-        //Debug.Log("Fire");
         Debug.Log(Input.mousePosition);
 
         Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
@@ -111,12 +101,10 @@ public class CharacterController : MonoBehaviour
 
        direction.Normalize();
 
-        //Debug.Log(direction);
-        //int projectileAttackRandomizer = 1;
         Rigidbody2D ProjoB = Instantiate(bulletB, transform.position, transform.rotation);
+        //bullets.Add(ProjoB);
         ProjoB.AddForce(direction * bulletSpeed);
         ProjoB.transform.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
-        //ProjoR.GetComponent<SpriteRenderer>().sprite = projectileAttackSprite[projectileAttackRandomizer];
         //audio.PlayOneShot(shootCandy);
         Destroy(ProjoB.transform.gameObject, lifespan);
     }
@@ -125,7 +113,7 @@ public class CharacterController : MonoBehaviour
     void SpawnEnemy1()
     {
         Vector3 spawnPosition = new Vector3(-2.5f,0f,0f);
-        var direction = transform.position - spawnPosition;
+        var direction = spawnPosition - transform.position ;
         direction.z = 0;
 
         //direction.Normalize();
@@ -137,17 +125,7 @@ public class CharacterController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag == "Platform") {
-            myPlatform = collision.gameObject;
-            oldPlatformPos = myPlatform.transform.position;
-            /*Debug.Log("Enter " + collision.gameObject);
-            Debug.Log("Sticking to a Tile");*/
-        } else if (collision.CompareTag("Candy"))
-        {
-            //audio.PlayOneShot(lootCandy);
-        }
-    }
+
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (myPlatform != null) {
