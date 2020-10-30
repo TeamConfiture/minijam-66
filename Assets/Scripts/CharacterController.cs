@@ -8,6 +8,8 @@ public class CharacterController : MonoBehaviour
     public Rigidbody2D bulletR;
     public Rigidbody2D bulletB;
 
+    public Rigidbody2D enemy1;
+
     
 
 
@@ -25,6 +27,8 @@ public class CharacterController : MonoBehaviour
 
     public float NextFire = 0 ;
 
+    public int nbEnemy = 1;
+
     /*[Header("Audio")]
     public AudioClip lootCandy;
     public AudioClip shootCandy;
@@ -37,6 +41,7 @@ public class CharacterController : MonoBehaviour
         NextFire = Time.time;
         //manager.doudouNb = 0;
         //audio = transform.GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -54,11 +59,16 @@ public class CharacterController : MonoBehaviour
             NextFire = Time.time;
            // NextFire = Time.time + FireRate;
         }
+        if(nbEnemy > 0){
+            SpawnEnemy1();
+            nbEnemy--;
+        }
     }
 
     void FireR()
     {
         //Debug.Log("Fire");
+        Debug.Log(Input.mousePosition);
 
         Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
         var direction = worldMousePosition - transform.position;
@@ -86,6 +96,7 @@ public class CharacterController : MonoBehaviour
     void FireB()
     {
         //Debug.Log("Fire");
+        Debug.Log(Input.mousePosition);
 
         Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
         var direction = worldMousePosition - transform.position;
@@ -110,6 +121,27 @@ public class CharacterController : MonoBehaviour
         Destroy(ProjoB.transform.gameObject, lifespan);
     }
 
+
+    void SpawnEnemy1()
+    {
+        Debug.Log("Sloobie0");
+        Vector3 spawnPosition = new Vector3(-2.5f,0f,0f);
+        Debug.Log("Sloobie1");
+        var direction = transform.position - spawnPosition;
+        direction.z = 0;
+        Debug.Log("Sloobie2");
+
+        direction.Normalize();
+        Debug.Log("Sloobie3");
+
+        Rigidbody2D Enemy1 = Instantiate(enemy1, spawnPosition, transform.rotation);
+        Debug.Log("Sloobie4");
+        //enemy1.AddForce(direction * bulletSpeed);
+        Debug.Log("Sloobie5");
+        Enemy1.transform.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        Debug.Log("Sloobie6");
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Platform") {
