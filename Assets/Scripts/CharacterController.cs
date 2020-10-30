@@ -124,22 +124,16 @@ public class CharacterController : MonoBehaviour
 
     void SpawnEnemy1()
     {
-        Debug.Log("Sloobie0");
         Vector3 spawnPosition = new Vector3(-2.5f,0f,0f);
-        Debug.Log("Sloobie1");
         var direction = transform.position - spawnPosition;
         direction.z = 0;
-        Debug.Log("Sloobie2");
 
-        direction.Normalize();
-        Debug.Log("Sloobie3");
+        //direction.Normalize();
+
+        Debug.Log(direction);
 
         Rigidbody2D Enemy1 = Instantiate(enemy1, spawnPosition, transform.rotation);
-        Debug.Log("Sloobie4");
-        //enemy1.AddForce(direction * bulletSpeed);
-        Debug.Log("Sloobie5");
-        Enemy1.transform.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
-        Debug.Log("Sloobie6");
+        enemy1.AddForce(direction * bulletSpeed);
 
     }
 
