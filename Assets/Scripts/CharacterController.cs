@@ -13,11 +13,11 @@ public class CharacterController : MonoBehaviour
     public Animator animator;
 
     public Rigidbody2D enemy1;
-
+    public SpriteRenderer[] lifes;
+    public Sprite lifeLost;
+    private int hearts = 5;
     private List<Rigidbody2D> bullets;
 
-    
- 
     GameManager manager = null;
     GameObject myPlatform = null;
     Vector3 oldPlatformPos;
@@ -27,20 +27,15 @@ public class CharacterController : MonoBehaviour
     public float lifespan = 1f;
 
     public float cooldown = 0.3f;
-    public Sprite[] projectileAttackSprite;
-
 
     public float NextFire = 0 ;
-
     public int nbEnemy = 1;
-
 
     void Start()
     {
         manager = GameManager.Instance;
         NextFire = Time.time;
         //audio = transform.GetComponent<AudioSource>();
-        
     }
 
     // Update is called once per frame
@@ -134,11 +129,10 @@ public class CharacterController : MonoBehaviour
 
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (myPlatform != null) {
-            if (myPlatform == collision.gameObject) {
-                myPlatform = null;
-                //Debug.Log("Leaving my Tile");
-            }
+        if (collision.tag == "Monster" && hearts > 0)
+        {
+            lifes[hearts - 1].sprite = lifeLost;
+            hearts--;
         }
     }
 }
