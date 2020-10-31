@@ -24,10 +24,10 @@ public class CandyScript : MonoBehaviour
             Debug.Log("Sloubie2");
             /*Debug.Log("Enter " + collision.gameObject);
             Debug.Log("Sticking to a Tile");*/
-        } else if (collision.CompareTag("Candy"))
+        } /*else if (collision.CompareTag("Candy"))
         {
             //audio.PlayOneShot(lootCandy);
-        }
+        }*/
     }
 }
 
