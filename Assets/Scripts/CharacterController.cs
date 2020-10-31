@@ -22,8 +22,8 @@ public class CharacterController : MonoBehaviour
 
 
     GameManager manager = null;
-    GameObject myPlatform = null;
-    Vector3 oldPlatformPos;
+    //GameObject myPlatform = null;
+    //Vector3 oldPlatformPos;
 
     [SerializeField]
     public float bulletSpeed = 500f;
@@ -64,7 +64,6 @@ public class CharacterController : MonoBehaviour
 
     void FireR()
     {
-        Debug.Log(Input.mousePosition);
 
         Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
         var direction = worldMousePosition - transform.position;
@@ -88,7 +87,6 @@ public class CharacterController : MonoBehaviour
 
     void FireB()
     {
-        Debug.Log(Input.mousePosition);
 
         Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
         var direction = worldMousePosition - transform.position;

@@ -90,16 +90,14 @@ public class DoudouBehavior : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.tag == this.healthBar[this.hp - 1].gameObject.tag)
+        if (collision.tag != "Monster" && collision.tag == this.healthBar[this.hp - 1].gameObject.tag)
         {
             if(this.hp > 1)
             {
                 this.hp--;
                 this.healthBar.ForEach(delegate(Rigidbody2D bar)
                 {
-                    Debug.Log("Sloubie1");
                     bar.transform.position = (new Vector2(bar.position.x + lifeXSpace/2,bar.position.y));
-                    Debug.Log("Sloubie2");
                     });
                 Destroy(this.healthBar[this.hp].gameObject);
                 Destroy(this.healthBar[this.hp]);
