@@ -107,6 +107,11 @@ public class DoudouBehavior : MonoBehaviour
             else
             {
                 Destroy(gameObject);
+                if(!Global.killedThisWave)
+                {
+                    Global.killedThisWave = true;
+                }
+                Global.remainingEnemies--;
             }
             
         }

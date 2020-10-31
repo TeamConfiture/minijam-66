@@ -7,11 +7,19 @@ public class MapLevel0 : MonoBehaviour
 
     //public Rigidbody2D spawns ;
     public int nbWaveEnemies = 3;
+
+    public int nbWave = 3;
+
+    public int currentWave= 0;
+
     public int padding = 2;
     public Rigidbody2D enemy1;
     public float enemySpeed = 500f;
 
     public float spawnWidth = 1.4f;
+
+    private Vector3 backgroundCo;
+    private Vector3 AllowedCo;
 
 
     // Start is called before the first frame update
@@ -20,18 +28,36 @@ public class MapLevel0 : MonoBehaviour
         //Transform[] tab = spawns.GetComponentsInChildren<Transform>();
         // x <= abs(espacement + padding_x + background.width/2)
         // y < -background/2 - padding_y - espacement
-        Vector3 backgroundCo = GetComponent<Renderer>().bounds.size;
-        Vector3 AllowedCo = new Vector3(backgroundCo[0]/2 + padding, backgroundCo[1]/2 + padding, backgroundCo[2]);
-        for(int i = 0; i <= nbWaveEnemies; i++)
+        backgroundCo = GetComponent<Renderer>().bounds.size;
+        AllowedCo = new Vector3(backgroundCo[0]/2 + padding, backgroundCo[1]/2 + padding, backgroundCo[2]);
+        Global.remainingEnemies = this.nbWave * this.nbWaveEnemies;
+        for(int i = 0; i < nbWaveEnemies; i++)
         {
             SpawnEnemy1(AllowedCo, spawnWidth);
         }
+        currentWave++;
+        Global.killedThisWave = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Global.remainingEnemies==0)
+        {
+            Debug.Log("Victiore");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Level2");
+            //soundEffect.Play();
+        }
+        else if(Global.killedThisWave && Global.remainingEnemies % nbWaveEnemies ==0)
+        {
+            Global.killedThisWave = false;
+            Debug.Log("Oh no");
+            Global.killedThisWave = false;
+                for(int i = 0; i < nbWaveEnemies; i++)
+            {
+                SpawnEnemy1(AllowedCo, spawnWidth);
+            }
+        }
 
     }
 
