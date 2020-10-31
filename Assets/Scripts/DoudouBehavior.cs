@@ -48,7 +48,7 @@ public class DoudouBehavior : MonoBehaviour
 
            /* if (Vector3.Distance(player.transform.position, transform.position) > distance)
             {*/
-                //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
            // }
     
 
@@ -71,10 +71,7 @@ public class DoudouBehavior : MonoBehaviour
         Vector3 healthPosition = new Vector3(transform.position.x+ xOffset,transform.position.y + lifeYOffset,-1);
         Rigidbody2D Health = Instantiate(health, healthPosition,transform.rotation);
         Health.transform.parent = transform;
-        Debug.Log(this.healthBar);
-        Debug.Log(Health);
         this.healthBar.Add(Health);
-        Debug.Log(this.healthBar);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

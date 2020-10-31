@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\DoudouBehavior.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Menu\SC_MainMenu.cs" />
+     <Compile Include="Assets\Scripts\NextLevel.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/user/Documents/GitHub/minijam-66/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
