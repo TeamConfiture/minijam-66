@@ -58,11 +58,11 @@ public class DoudouBehavior : MonoBehaviour
     public void addLifeRec(int hp)
     {
         this.hp = hp;
-        float multiplier = 1-(float)hp;
+        float multiplier = (float)hp -1;
         for(int i=0; i < hp; i++)
         {
             addlife(multiplier/2 * lifeXSpace);
-            multiplier+=2;
+            multiplier-=2;
         }
     }
 
@@ -97,7 +97,7 @@ public class DoudouBehavior : MonoBehaviour
                 this.hp--;
                 this.healthBar.ForEach(delegate(Rigidbody2D bar)
                 {
-                    bar.transform.position = (new Vector2(bar.position.x + lifeXSpace/2,bar.position.y));
+                    bar.transform.position = (new Vector2(bar.position.x - lifeXSpace/2,bar.position.y));
                     });
                 Destroy(this.healthBar[this.hp].gameObject);
                 Destroy(this.healthBar[this.hp]);
