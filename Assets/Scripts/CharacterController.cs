@@ -18,6 +18,9 @@ public class CharacterController : MonoBehaviour
     private int hearts = 5;
     private List<Rigidbody2D> bullets;
 
+    public Rigidbody2D health;
+
+
     GameManager manager = null;
     GameObject myPlatform = null;
     Vector3 oldPlatformPos;

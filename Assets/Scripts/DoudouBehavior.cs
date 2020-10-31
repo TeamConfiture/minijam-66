@@ -13,6 +13,11 @@ public class DoudouBehavior : MonoBehaviour
     public float distance = 1f;
     private float speed = 2f;
     private float knockback = -80f;
+    public Rigidbody2D health;
+    public float lifeYOffset = 1.5f;
+    public float lifeXSpace = 1f;
+
+    public int hp = 3;
 
     [Header("Audio")]
     private AudioSource audio;
@@ -28,6 +33,8 @@ public class DoudouBehavior : MonoBehaviour
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         coll2d = gameObject.GetComponent<Collider2D>();
         audio = gameObject.GetComponent<AudioSource>();
+
+        this.addLifeRec(this.hp);
     }
 
     // Update is called once per frame
@@ -43,22 +50,47 @@ public class DoudouBehavior : MonoBehaviour
 
     }
 
+    public void addLifeRec(int hp)
+    {
+        this.hp = hp;
+        float multiplier = 1-(float)hp;
+        for(int i=0; i < hp; i++)
+        {
+            Debug.Log("Sloobie");
+            addlife(multiplier/2 * lifeXSpace);
+            multiplier+=2;
+        }
+    }
+
+    public void addlife(float xOffset)
+    {
+        Vector3 healthPosition = new Vector3(transform.position.x+ xOffset,transform.position.y + lifeYOffset,-1);
+        Rigidbody2D Health = Instantiate(health, healthPosition,transform.rotation);
+        Health.transform.parent = transform;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Bullet turn evil doudou into nice ones <3
         
         if (collision.tag == "Bullet")
         {
+            if(this.hp > 1)
+            {
+                this.hp--;
+                foreach (Transform child in transform)
+                {
+                     Destroy(child.gameObject);
+                }
+                addLifeRec(this.hp);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
             
-            // Remove devil doudou and replace by cute doudou  
-            /*isEvil = false;
-            transform.gameObject.tag = "NiceDoudou";
-            audio.PlayOneShot(transfo);
-            StartCoroutine("Transformation");*/
-            Destroy(gameObject);
-            
-            
-        }else if(collision.tag =="Player"){
+        }
+        else if(collision.tag =="Player")
+        {
             //Destroy(gameObject);
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position  , knockback * speed * Time.deltaTime);
         }

@@ -16,15 +16,14 @@ public class CandyScript : MonoBehaviour
         
     }
 
-        private void OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log("Sloubie0");
-        if (collision.tag == "Monster") {
-            Debug.Log("Sloubie1");
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.tag == "Monster")
+         {
             Destroy(gameObject);
-            Debug.Log("Sloubie2");
             /*Debug.Log("Enter " + collision.gameObject);
             Debug.Log("Sticking to a Tile");*/
-        } /*else if (collision.CompareTag("Candy"))
+        }
+        /*else if (collision.CompareTag("Candy"))
         {
             //audio.PlayOneShot(lootCandy);
         }*/
