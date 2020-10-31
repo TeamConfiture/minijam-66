@@ -90,7 +90,7 @@ public class DoudouBehavior : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.tag == "Bullet")
+        if (collision.tag == this.healthBar[this.hp - 1].gameObject.tag)
         {
             if(this.hp > 1)
             {
