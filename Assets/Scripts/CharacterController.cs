@@ -33,6 +33,7 @@ public class CharacterController : MonoBehaviour
 
     public float NextFire = 0 ;
     public int nbEnemy = 1;
+    public string GameOverScene;
 
     void Start()
     {
@@ -137,5 +138,15 @@ public class CharacterController : MonoBehaviour
             lifes[hearts - 1].sprite = lifeLost;
             hearts--;
         }
+        if (hearts == 0)
+        {
+            GameOver(GameOverScene);
+        }
+    }
+
+    private void GameOver(string scene)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
+        //soundEffect.Play();
     }
 }
