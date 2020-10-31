@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CharacterController : MonoBehaviour
 {
     [Header("Attributes")]
@@ -9,13 +10,14 @@ public class CharacterController : MonoBehaviour
     public Rigidbody2D bulletR;
     public Rigidbody2D bulletB;
 
+    public Animator animator;
+
     public Rigidbody2D enemy1;
 
     private List<Rigidbody2D> bullets;
 
     
-
-
+ 
     GameManager manager = null;
     GameObject myPlatform = null;
     Vector3 oldPlatformPos;
@@ -46,11 +48,13 @@ public class CharacterController : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire2") && Time.time > NextFire + cooldown)
         {
+           animator.SetTrigger("RightTrigger");
             FireR();
             NextFire = Time.time;
         }
         if (Input.GetButtonDown("Fire1") && Time.time > NextFire + cooldown)
         {
+            animator.SetTrigger("LeftTrigger");
             FireB();
             NextFire = Time.time;
         }
@@ -59,6 +63,8 @@ public class CharacterController : MonoBehaviour
             nbEnemy--;
         }
     }
+
+
 
     void FireR()
     {

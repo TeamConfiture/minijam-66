@@ -10,8 +10,9 @@ public class DoudouBehavior : MonoBehaviour
 
 
     public GameObject player;
-    public float distance;
-    public float speed;
+    public float distance = 1f;
+    private float speed = 2f;
+    private float knockback = -80f;
 
     [Header("Audio")]
     private AudioSource audio;
@@ -33,10 +34,10 @@ public class DoudouBehavior : MonoBehaviour
     void Update()
     {
 
-            if (Vector3.Distance(player.transform.position, transform.position) < distance)
-            {
+           /* if (Vector3.Distance(player.transform.position, transform.position) > distance)
+            {*/
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-            }
+           // }
     
 
 
@@ -46,7 +47,7 @@ public class DoudouBehavior : MonoBehaviour
     {
         //Bullet turn evil doudou into nice ones <3
         
-        if (collision.tag == "Bullet" )
+        if (collision.tag == "Bullet")
         {
             
             // Remove devil doudou and replace by cute doudou  
@@ -56,6 +57,10 @@ public class DoudouBehavior : MonoBehaviour
             StartCoroutine("Transformation");*/
             Destroy(gameObject);
             
+            
+        }else if(collision.tag =="Player"){
+            //Destroy(gameObject);
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position  , knockback * speed * Time.deltaTime);
         }
     }
 
