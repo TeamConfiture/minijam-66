@@ -111,7 +111,7 @@ MonoBehaviour:
   lifespan: 3
   cooldown: 0.03
   NextFire: 0
-  nbEnemy: 1
+  nbWaveEnemies: 1
   GameOverScene: GameOver
 --- !u!70 &6017569601838638131
 CapsuleCollider2D:
