@@ -13,7 +13,10 @@ public class DoudouBehavior : MonoBehaviour
     public float distance = 1f;
     private float speed = 2f;
     private float knockback = -80f;
+
     public Rigidbody2D health;
+
+    private List<Rigidbody2D> healthBar = new List<Rigidbody2D>();
     public float lifeYOffset = 1.5f;
     public float lifeXSpace = 1f;
 
@@ -34,6 +37,8 @@ public class DoudouBehavior : MonoBehaviour
         coll2d = gameObject.GetComponent<Collider2D>();
         audio = gameObject.GetComponent<AudioSource>();
 
+
+
         this.addLifeRec(this.hp);
     }
 
@@ -43,7 +48,7 @@ public class DoudouBehavior : MonoBehaviour
 
            /* if (Vector3.Distance(player.transform.position, transform.position) > distance)
             {*/
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
            // }
     
 
@@ -56,7 +61,6 @@ public class DoudouBehavior : MonoBehaviour
         float multiplier = 1-(float)hp;
         for(int i=0; i < hp; i++)
         {
-            Debug.Log("Sloobie");
             addlife(multiplier/2 * lifeXSpace);
             multiplier+=2;
         }
@@ -67,6 +71,10 @@ public class DoudouBehavior : MonoBehaviour
         Vector3 healthPosition = new Vector3(transform.position.x+ xOffset,transform.position.y + lifeYOffset,-1);
         Rigidbody2D Health = Instantiate(health, healthPosition,transform.rotation);
         Health.transform.parent = transform;
+        Debug.Log(this.healthBar);
+        Debug.Log(Health);
+        this.healthBar.Add(Health);
+        Debug.Log(this.healthBar);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -77,11 +85,16 @@ public class DoudouBehavior : MonoBehaviour
             if(this.hp > 1)
             {
                 this.hp--;
-                foreach (Transform child in transform)
+                this.healthBar.ForEach(delegate(Rigidbody2D bar)
                 {
-                     Destroy(child.gameObject);
-                }
-                addLifeRec(this.hp);
+                    Debug.Log("Sloubie1");
+                    bar.transform.position = (new Vector2(bar.position.x + lifeXSpace/2,bar.position.y));
+                    Debug.Log("Sloubie2");
+                    });
+                Destroy(this.healthBar[this.hp].gameObject);
+                Destroy(this.healthBar[this.hp]);
+                this.healthBar.RemoveAt(this.hp);
+                
             }
             else
             {

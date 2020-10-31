@@ -137,3 +137,4 @@ MonoBehaviour:
   health: {fileID: 1373811263892598204, guid: 146969e1d0869184a85532ecdce70b5e, type: 3}
   lifeYOffset: 1.5
   lifeXSpace: 0.3
+  hp: 3
