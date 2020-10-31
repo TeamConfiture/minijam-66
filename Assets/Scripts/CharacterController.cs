@@ -12,7 +12,7 @@ public class CharacterController : MonoBehaviour
 
     public Animator animator;
 
-    public Rigidbody2D enemy1;
+
     public SpriteRenderer[] lifes;
     public Sprite lifeLost;
     private int hearts = 5;
@@ -32,7 +32,7 @@ public class CharacterController : MonoBehaviour
     public float cooldown = 0.01f;
 
     public float NextFire = 0 ;
-    public int nbEnemy = 1;
+    
     public string GameOverScene;
 
     void Start()
@@ -57,10 +57,7 @@ public class CharacterController : MonoBehaviour
             FireB();
             NextFire = Time.time;
         }
-        if(nbEnemy > 0){
-            SpawnEnemy1();
-            nbEnemy--;
-        }
+        
     }
 
 
@@ -115,20 +112,6 @@ public class CharacterController : MonoBehaviour
     }
 
 
-    void SpawnEnemy1()
-    {
-        Vector3 spawnPosition = new Vector3(-2.5f,0f,0f);
-        var direction = spawnPosition - transform.position ;
-        direction.z = 0;
-
-        //direction.Normalize();
-
-        Debug.Log(direction);
-
-        Rigidbody2D Enemy1 = Instantiate(enemy1, spawnPosition, transform.rotation);
-        enemy1.AddForce(direction * bulletSpeed);
-
-    }
 
 
 

@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\CharacterController.cs" />
      <Compile Include="Assets\Scripts\DoudouBehavior.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\MapLevel0.cs" />
      <Compile Include="Assets\Scripts\Menu\SC_MainMenu.cs" />
      <Compile Include="Assets\Scripts\NextLevel.cs" />
  <Reference Include="Unity.Timeline.Editor">

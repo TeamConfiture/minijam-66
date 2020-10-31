@@ -11,7 +11,7 @@ public class DoudouBehavior : MonoBehaviour
 
     public GameObject player;
     public float distance = 1f;
-    private float speed = 2f;
+    public float speed = 2f;
     private float knockback = -80f;
 
     public Rigidbody2D health;
