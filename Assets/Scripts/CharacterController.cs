@@ -26,7 +26,7 @@ public class CharacterController : MonoBehaviour
     public float bulletSpeed = 500f;
     public float lifespan = 1f;
 
-    public float cooldown = 0.3f;
+    public float cooldown = 0.01f;
 
     public float NextFire = 0 ;
     public int nbEnemy = 1;
