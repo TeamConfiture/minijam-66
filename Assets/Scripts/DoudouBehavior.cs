@@ -68,9 +68,22 @@ public class DoudouBehavior : MonoBehaviour
 
     public void addlife(float xOffset)
     {
+        Color bulletRed = new Color((float)0.81, (float) 0.29, (float) 0.33);
+        Color bulletBlue = new Color((float) 0.3, (float) 0.32, (float) 0.81);
         Vector3 healthPosition = new Vector3(transform.position.x+ xOffset,transform.position.y + lifeYOffset,-1);
         Rigidbody2D Health = Instantiate(health, healthPosition,transform.rotation);
         Health.transform.parent = transform;
+        int rand = Random.Range(0, 2);
+        if (rand == 0)
+        {
+            Health.GetComponent<SpriteRenderer>().color = bulletBlue;
+            Health.gameObject.tag = "bulletBlue" ;
+        }
+        else
+        {
+            Health.GetComponent<SpriteRenderer>().color = bulletRed; ;
+            Health.gameObject.tag = "bulletRed";
+        }
         this.healthBar.Add(Health);
     }
 
