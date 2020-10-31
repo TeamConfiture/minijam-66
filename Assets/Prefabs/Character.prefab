@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6017569601838638131}
   - component: {fileID: 6017569601838638132}
   m_Layer: 0
-  m_Name: Character 1
+  m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,6 +112,7 @@ MonoBehaviour:
   cooldown: 0.03
   NextFire: 0
   nbEnemy: 1
+  GameOverScene: GameOver
 --- !u!70 &6017569601838638131
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
