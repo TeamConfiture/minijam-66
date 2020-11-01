@@ -188,7 +188,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &103706320
@@ -213,7 +213,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103706317}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 5481841a3bc107d42abf854f48115e7c, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: db4329415fff9b549b4a68d8f6344ba2, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 103706319}
@@ -286,8 +286,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 19.11, y: 0}
-  m_SizeDelta: {x: 235.48163, y: 38.02997}
+  m_AnchoredPosition: {x: 571.04004, y: 0}
+  m_SizeDelta: {x: 349.96, y: 36.75}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &229466209
 MonoBehaviour:
@@ -308,7 +308,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e5f7076bba10a4f4884f5e89d67e5ba7, type: 3}
+    m_Font: {fileID: 12800000, guid: f985e42fcb35a074c99812328e547198, type: 3}
     m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press space to skip
+  m_Text: Press left mouse button to skip
 --- !u!222 &229466210
 CanvasRenderer:
   m_ObjectHideFlags: 0

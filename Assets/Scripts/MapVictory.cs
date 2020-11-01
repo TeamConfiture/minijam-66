@@ -8,6 +8,9 @@ public class MapVictory : MonoBehaviour
     public AudioClip clip;
     public AudioSource music;
 
+    public GameObject Part1;
+    public GameObject Part2;
+
     public bool loop;
     public float musicVolume = 0.3f;
 
@@ -18,6 +21,11 @@ public class MapVictory : MonoBehaviour
         music.clip = clip;
         music.volume = musicVolume;
         music.Play();
+        if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Victoire")
+        {
+            Part2.SetActive(false);
+            Part1.SetActive(true);
+        }
     }
 
     // Update is called once per frame

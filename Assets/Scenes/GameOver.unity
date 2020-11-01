@@ -262,6 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7064609d0078b4fb6c1f35759dde31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Part1: {fileID: 0}
+  Part2: {fileID: 0}
 --- !u!1 &448839680
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +475,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 14c583443c0c63a47b62b14b2e60aebf, type: 3}
   music: {fileID: 448839685}
+  Part1: {fileID: 0}
+  Part2: {fileID: 0}
   loop: 0
   musicVolume: 0.3
 --- !u!1 &797382867

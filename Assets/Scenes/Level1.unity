@@ -822,6 +822,7 @@ MonoBehaviour:
   nbWave: 3
   clip: {fileID: 8300000, guid: e02dd659010b07644a4b5e3ad5a883b5, type: 3}
   music: {fileID: 1945538183}
+  musicVolume: 0.2
   LoadScene: 
   currentWave: 0
   player: {fileID: 931827191}
@@ -1276,9 +1277,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Fire Left: Blue candy
+  m_Text: 'LMB: Blue candy
 
-    Fire Right: Red candy'
+    RMB: Red candy'
 --- !u!222 &2145895651
 CanvasRenderer:
   m_ObjectHideFlags: 0
