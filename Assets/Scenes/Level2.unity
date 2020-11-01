@@ -752,7 +752,10 @@ MonoBehaviour:
   currentWave: 0
   player: {fileID: 664216094127811462, guid: a21e34fd1c522c64da52dd2d0b18c8b6, type: 3}
   padding: 2
-  enemy1: {fileID: 4441350683372000033, guid: 9b676df6328d80941bba41282e89bdaf, type: 3}
+  enemies:
+  - {fileID: 4441350683372000033, guid: 9b676df6328d80941bba41282e89bdaf, type: 3}
+  - {fileID: -2012200779655690183, guid: bc7c6d515c693b44789f175089227a2e, type: 3}
+  SqueletProbability: 33
   enemySpeed: 500
   spawnWidth: 1.4
 --- !u!1001 &2092139711

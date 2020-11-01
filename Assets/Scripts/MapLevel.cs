@@ -15,7 +15,8 @@ public class MapLevel : MonoBehaviour
     public int currentWave;
     public GameObject player;
     public int padding = 2;
-    public Rigidbody2D enemy1;
+    public List<Rigidbody2D> enemies;
+    public int SqueletProbability;
     public float enemySpeed = 500f;
 
     public float spawnWidth = 1.4f;
@@ -105,9 +106,17 @@ public class MapLevel : MonoBehaviour
 
         //direction.Normalize();
 
-
-        Rigidbody2D Enemy1 = Instantiate(enemy1, spawnPosition, transform.rotation);
-        enemy1.AddForce(direction * enemySpeed);
+        int toSpawn = Random.Range(0, 100);
+        if (toSpawn < SqueletProbability)
+        {
+            toSpawn = 1;
+        }
+        else
+        {
+            toSpawn = 0;
+        }
+        Rigidbody2D Enemy1 = Instantiate(enemies[toSpawn], spawnPosition, transform.rotation);
+        enemies[toSpawn].AddForce(direction * enemySpeed);
 
     }
 }

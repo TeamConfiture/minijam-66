@@ -20,7 +20,7 @@ public class DoudouBehavior : MonoBehaviour
     public float lifeYOffset = 1.5f;
     public float lifeXSpace = 1f;
 
-    public int hp = 3;
+    public int hp;
 
     [Header("Audio")]
     public List<AudioClip> clip;
