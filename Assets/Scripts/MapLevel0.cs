@@ -12,7 +12,7 @@ public class MapLevel0 : MapLevel
     currentWave= 0;
     LoadScene =  "Level2";
     BeginStart();
-    parameters = new float[,] { 
+    parameters = new float[,] {
       { 
         AllowedCo.x, AllowedCo.x + spawnWidth, 0, AllowedCo.y + spawnWidth
       }, 

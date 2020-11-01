@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 public class CharacterController : MonoBehaviour
 {
     [Header("Attributes")]
@@ -121,12 +122,13 @@ public class CharacterController : MonoBehaviour
         }
         if (hearts == 0)
         {
-            GameOver(GameOverScene);
+            GameOver(GameOverScene,UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }
     }
 
-    private void GameOver(string scene)
-    {
+    private void GameOver(string scene, string currentScene)
+    {   
+        Reset.lastScene = currentScene;
         UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
         //soundEffect.Play();
     }
