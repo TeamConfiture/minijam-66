@@ -6,11 +6,11 @@ public class MapLevel2 : MapLevel
 {
   void Start()
   {
-    //nbWaveEnemies = 3;
-    //nbWave = 3;
-    //maxrand = 3;
+    nbWaveEnemies = 3;
+    nbWave = 3;
+    maxrand = 4;
     currentWave= 0;
-    LoadScene = "MainMenu";
+    LoadScene = "Victoire";
     BeginStart();
     parameters = new float[,] { 
       { 

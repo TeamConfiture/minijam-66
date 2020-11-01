@@ -7,7 +7,12 @@ public class Reset : MonoBehaviour
     public static string lastScene;
     // Start is called before the first frame update
     public void resetLastScene()
-    {
+    {  
         UnityEngine.SceneManagement.SceneManager.LoadScene(lastScene);
+    }
+
+    public void resetToMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 }
