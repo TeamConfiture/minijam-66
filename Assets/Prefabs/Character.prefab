@@ -99,7 +99,6 @@ MonoBehaviour:
   bulletR: {fileID: 3028746429821552748, guid: 3c0f650f8a61a244e9d15e5dbdf40bc5, type: 3}
   bulletB: {fileID: 1234360968963987321, guid: dc4a0737651ae544a9971d39f69eccce, type: 3}
   animator: {fileID: 6017569601838638132}
-  enemy1: {fileID: 4441350683372000033, guid: 9b676df6328d80941bba41282e89bdaf, type: 3}
   lifes:
   - {fileID: 0}
   - {fileID: 0}
@@ -107,12 +106,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   lifeLost: {fileID: 21300000, guid: 6448b2dda710d554d8412feb1088d2a1, type: 3}
+  health: {fileID: 0}
   bulletSpeed: 500
   lifespan: 3
   cooldown: 0.03
   NextFire: 0
-  nbWaveEnemies: 1
   GameOverScene: GameOver
+  clip: {fileID: 8300000, guid: 6209b897acd671e4eb9f801f3bfd58fd, type: 3}
 --- !u!70 &6017569601838638131
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

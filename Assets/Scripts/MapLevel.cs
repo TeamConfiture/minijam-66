@@ -10,6 +10,7 @@ public class MapLevel : MonoBehaviour
     public int maxrand;
     public int nbWave ;
 
+    public AudioClip clip;
     public string LoadScene;
     public int currentWave;
     public GameObject player;
@@ -28,6 +29,7 @@ public class MapLevel : MonoBehaviour
 
     protected void BeginStart()
     {
+        AudioSource.PlayClipAtPoint(clip, transform.position);
         backgroundCo = GetComponent<Renderer>().bounds.size;
         AllowedCo = new Vector3(backgroundCo[0]/2 + padding, backgroundCo[1]/2 + padding, backgroundCo[2]);
     }

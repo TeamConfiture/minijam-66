@@ -23,7 +23,7 @@ public class DoudouBehavior : MonoBehaviour
     public int hp = 3;
 
     [Header("Audio")]
-    private AudioSource audio;
+    public List<AudioClip> clip;
 
     GameManager manager = null;
 
@@ -35,7 +35,7 @@ public class DoudouBehavior : MonoBehaviour
         sprd = gameObject.GetComponent<SpriteRenderer>();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         coll2d = gameObject.GetComponent<Collider2D>();
-        audio = gameObject.GetComponent<AudioSource>();
+        //audio = gameObject.GetComponent<AudioSource>();
         player = GameObject.Find("Character");
 
 
@@ -108,6 +108,9 @@ public class DoudouBehavior : MonoBehaviour
             else
             {
                 Destroy(gameObject);
+                int musicNumber = Random.Range(0, clip.Count);
+                               
+                AudioSource.PlayClipAtPoint(clip[musicNumber],transform.position);
                 if(!Global.killedThisWave)
                 {
                     Global.killedThisWave = true;

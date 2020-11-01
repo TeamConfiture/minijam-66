@@ -747,6 +747,7 @@ MonoBehaviour:
   nbWaveEnemies: 3
   maxrand: 4
   nbWave: 3
+  clip: {fileID: 8300000, guid: bcbeaf125be99d7488e08f892e3c55ba, type: 3}
   LoadScene: 
   currentWave: 0
   player: {fileID: 664216094127811462, guid: a21e34fd1c522c64da52dd2d0b18c8b6, type: 3}

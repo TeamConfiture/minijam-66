@@ -35,12 +35,11 @@ public class CharacterController : MonoBehaviour
     public float NextFire = 0 ;
     
     public string GameOverScene;
-
+    public AudioClip clip;
     void Start()
     {
         manager = GameManager.Instance;
         NextFire = Time.time;
-        //audio = transform.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,13 +48,13 @@ public class CharacterController : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && Time.time > NextFire + cooldown)
         {
            animator.SetTrigger("RightTrigger");
-            FireR();
+            Fire('R');
             NextFire = Time.time;
         }
         if (Input.GetButtonDown("Fire1") && Time.time > NextFire + cooldown)
         {
             animator.SetTrigger("LeftTrigger");
-            FireB();
+            Fire('B');
             NextFire = Time.time;
         }
         
@@ -63,9 +62,9 @@ public class CharacterController : MonoBehaviour
 
 
 
-    void FireR()
+    void Fire(char color)
     {
-
+        AudioSource.PlayClipAtPoint(clip,transform.position);
         Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
         var direction = worldMousePosition - transform.position;
         direction.z = 0;
@@ -75,10 +74,21 @@ public class CharacterController : MonoBehaviour
             direction.y = 0;
         else
             direction.x = 0;*/
-            
-
-       direction.Normalize();
-        Rigidbody2D ProjoR = Instantiate(bulletR, transform.position, transform.rotation);
+        Rigidbody2D bullet;
+        switch (color)
+        {
+          case ('R'):
+            bullet = bulletR;
+            break;
+          case ('B'):
+            bullet = bulletB;
+            break;
+          default:
+            bullet = bulletR;
+            break;
+        }
+        direction.Normalize();
+        Rigidbody2D ProjoR = Instantiate(bullet, transform.position, transform.rotation);
         //bullets.Add(ProjoR);
         ProjoR.AddForce(direction * bulletSpeed);
         ProjoR.transform.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
@@ -86,7 +96,7 @@ public class CharacterController : MonoBehaviour
         Destroy(ProjoR.transform.gameObject, lifespan);
     }
 
-    void FireB()
+/*    void FireB()
     {
 
         Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
@@ -97,7 +107,7 @@ public class CharacterController : MonoBehaviour
        /* if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
             direction.y = 0;
         else
-            direction.x = 0;*/
+            direction.x = 0;
             
 
        direction.Normalize();
@@ -109,7 +119,7 @@ public class CharacterController : MonoBehaviour
         //audio.PlayOneShot(shootCandy);
         Destroy(ProjoB.transform.gameObject, lifespan);
     }
-
+*/
 
 
 
