@@ -36,7 +36,7 @@ public class DoudouBehavior : MonoBehaviour
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         coll2d = gameObject.GetComponent<Collider2D>();
         audio = gameObject.GetComponent<AudioSource>();
-
+        player = GameObject.Find("Character");
 
 
         this.addLifeRec(this.hp);
@@ -70,7 +70,7 @@ public class DoudouBehavior : MonoBehaviour
     {
         Color bulletRed = new Color((float)0.81, (float) 0.29, (float) 0.33);
         Color bulletBlue = new Color((float) 0.3, (float) 0.32, (float) 0.81);
-        Vector3 healthPosition = new Vector3(transform.position.x+ xOffset,transform.position.y + lifeYOffset,-1);
+        Vector3 healthPosition = new Vector3(transform.position.x+ xOffset,transform.position.y + lifeYOffset,-2);
         Rigidbody2D Health = Instantiate(health, healthPosition,transform.rotation);
         Health.transform.parent = transform;
         int rand = Random.Range(0, 2);
@@ -102,6 +102,7 @@ public class DoudouBehavior : MonoBehaviour
                 Destroy(this.healthBar[this.hp].gameObject);
                 Destroy(this.healthBar[this.hp]);
                 this.healthBar.RemoveAt(this.hp);
+                Debug.Log("Vlan");
                 
             }
             else
@@ -118,7 +119,14 @@ public class DoudouBehavior : MonoBehaviour
         else if(collision.tag =="Player")
         {
             //Destroy(gameObject);
+            this.healthBar.ForEach(delegate(Rigidbody2D bar)
+            {
+              // To move correctly the healthbar when there is a collision between monster and witch
+              bar.transform.position = new Vector3(bar.position.x,bar.position.y,-2);
+            });
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position  , knockback * speed * Time.deltaTime);
+            float multiplier = (float)hp -1;
+
         }
     }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapLevel1 : MapLevel
+public class MapLevel2 : MapLevel
 {
   void Start()
   {
@@ -10,7 +10,7 @@ public class MapLevel1 : MapLevel
     //nbWave = 3;
     //maxrand = 3;
     currentWave= 0;
-    LoadScene = "Level3";
+    LoadScene = "MainMenu";
     BeginStart();
     parameters = new float[,] { 
       { 
