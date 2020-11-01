@@ -511,7 +511,7 @@ MonoBehaviour:
   music: {fileID: 910019307}
   Part1: {fileID: 1612279857}
   Part2: {fileID: 2098865196}
-  loop: 0
+  loop: 1
   musicVolume: 0.3
 --- !u!1 &1077398647
 GameObject:
