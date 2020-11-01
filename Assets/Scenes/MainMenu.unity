@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 40791048}
   - component: {fileID: 40791047}
   - component: {fileID: 40791050}
+  - component: {fileID: 40791051}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -265,8 +266,36 @@ MonoBehaviour:
   MainMenu: {fileID: 1612681997}
   CreditsMenu: {fileID: 1185198641}
   soundEffect: {fileID: 1385651280}
-  click: {fileID: 0}
-  hover: {fileID: 0}
+  click: {fileID: 8300000, guid: c1d1c1d7b14a7c0409ce44c217cc9c70, type: 3}
+  hover: {fileID: 8300000, guid: c1d1c1d7b14a7c0409ce44c217cc9c70, type: 3}
+--- !u!114 &40791051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40791045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 40791050}
+          m_MethodName: HoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &75430932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -492,6 +521,7 @@ GameObject:
   - component: {fileID: 543089134}
   - component: {fileID: 543089133}
   - component: {fileID: 543089132}
+  - component: {fileID: 543089136}
   m_Layer: 5
   m_Name: back
   m_TagString: Untagged
@@ -534,8 +564,8 @@ MonoBehaviour:
   MainMenu: {fileID: 1612681997}
   CreditsMenu: {fileID: 1185198641}
   soundEffect: {fileID: 1385651280}
-  click: {fileID: 0}
-  hover: {fileID: 0}
+  click: {fileID: 8300000, guid: c1d1c1d7b14a7c0409ce44c217cc9c70, type: 3}
+  hover: {fileID: 8300000, guid: c1d1c1d7b14a7c0409ce44c217cc9c70, type: 3}
 --- !u!114 &543089133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,6 +657,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543089130}
   m_CullTransparentMesh: 0
+--- !u!114 &543089136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543089130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 543089132}
+          m_MethodName: HoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1121325215
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,6 +698,7 @@ GameObject:
   - component: {fileID: 1121325218}
   - component: {fileID: 1121325217}
   - component: {fileID: 1121325220}
+  - component: {fileID: 1121325221}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -772,8 +831,36 @@ MonoBehaviour:
   MainMenu: {fileID: 1612681997}
   CreditsMenu: {fileID: 1185198641}
   soundEffect: {fileID: 1385651280}
-  click: {fileID: 0}
-  hover: {fileID: 0}
+  click: {fileID: 8300000, guid: c1d1c1d7b14a7c0409ce44c217cc9c70, type: 3}
+  hover: {fileID: 8300000, guid: c1d1c1d7b14a7c0409ce44c217cc9c70, type: 3}
+--- !u!114 &1121325221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121325215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1121325220}
+          m_MethodName: HoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1177455119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,8 +1193,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385651279}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 166.82082, y: 114.185875, z: -283.9161}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 166.82082, y: 114.18587, z: -283.9161}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1250,8 +1337,8 @@ MonoBehaviour:
   MainMenu: {fileID: 1612681997}
   CreditsMenu: {fileID: 1185198641}
   soundEffect: {fileID: 1385651280}
-  click: {fileID: 0}
-  hover: {fileID: 0}
+  click: {fileID: 8300000, guid: c1d1c1d7b14a7c0409ce44c217cc9c70, type: 3}
+  hover: {fileID: 8300000, guid: c1d1c1d7b14a7c0409ce44c217cc9c70, type: 3}
 --- !u!1 &1640388038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,7 +1931,3 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls: []

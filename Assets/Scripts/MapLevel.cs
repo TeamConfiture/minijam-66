@@ -11,6 +11,10 @@ public class MapLevel : MonoBehaviour
     public int nbWave ;
 
     public AudioClip clip;
+    public AudioSource music;
+
+    // valeur entre 0 et 1
+    public float musicVolume = 0.3f;
     public string LoadScene;
     public int currentWave;
     public GameObject player;
@@ -29,7 +33,10 @@ public class MapLevel : MonoBehaviour
 
     protected void BeginStart()
     {
-        AudioSource.PlayClipAtPoint(clip, transform.position);
+        music.loop = true;
+        music.clip = clip;
+        music.volume = musicVolume;
+        music.Play();
         backgroundCo = GetComponent<Renderer>().bounds.size;
         AllowedCo = new Vector3(backgroundCo[0]/2 + padding, backgroundCo[1]/2 + padding, backgroundCo[2]);
     }

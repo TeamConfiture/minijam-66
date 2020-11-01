@@ -132,7 +132,7 @@ public class CharacterController : MonoBehaviour
         }
         if (hearts == 0)
         {
-            GameOver(GameOverScene,UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            //GameOver(GameOverScene,UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }
     }
 
