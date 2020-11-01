@@ -7,12 +7,14 @@ public class MapVictory : MonoBehaviour
 
     public AudioClip clip;
     public AudioSource music;
+
+    public bool loop;
     public float musicVolume = 0.3f;
 
     // Start is called before the first frame update
     void Start()
     {
-        music.loop = true;
+        music.loop = loop;
         music.clip = clip;
         music.volume = musicVolume;
         music.Play();

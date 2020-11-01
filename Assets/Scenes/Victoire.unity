@@ -883,3 +883,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 934ace9231666b344a7aa5303687f341, type: 3}
   music: {fileID: 910019307}
+  loop: 1
+  musicVolume: 0.3

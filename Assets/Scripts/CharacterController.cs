@@ -12,7 +12,7 @@ public class CharacterController : MonoBehaviour
     public Rigidbody2D bulletB;
 
     public Animator animator;
-
+    public AudioClip hit;
 
     public SpriteRenderer[] lifes;
     public Sprite lifeLost;
@@ -127,12 +127,13 @@ public class CharacterController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.tag == "Monster" && hearts > 0)
         {
+            AudioSource.PlayClipAtPoint(hit,transform.position);
             lifes[hearts - 1].sprite = lifeLost;
             hearts--;
         }
         if (hearts == 0)
         {
-            //GameOver(GameOverScene,UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            GameOver(GameOverScene,UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }
     }
 

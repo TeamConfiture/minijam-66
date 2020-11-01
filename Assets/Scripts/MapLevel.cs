@@ -14,7 +14,7 @@ public class MapLevel : MonoBehaviour
     public AudioSource music;
 
     // valeur entre 0 et 1
-    public float musicVolume = 0.3f;
+    public float musicVolume = 0.2f;
     public string LoadScene;
     public int currentWave;
     public GameObject player;
