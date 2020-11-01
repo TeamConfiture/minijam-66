@@ -1,0 +1,7 @@
+.vs/Choupy Scary 2/v15/Server/sqlite3/*
+Library/*
+Temp/*
+.vscode/settings.json
+Assembly-CSharp.csproj
+minijam-66.sln
+obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache

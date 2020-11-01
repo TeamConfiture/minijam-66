@@ -6,8 +6,12 @@ public class SC_MainMenu : MonoBehaviour
 {
     public GameObject MainMenu;
     public GameObject CreditsMenu;
-
     public AudioSource soundEffect;
+
+    public AudioClip click;
+    public AudioClip hover;
+
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -34,6 +38,11 @@ public class SC_MainMenu : MonoBehaviour
     }
     public void QuitButton() {
         Application.Quit();
+    }
+
+    public void HoverSound()
+    {
+        soundEffect.PlayOneShot(hover);
     }
     
 }

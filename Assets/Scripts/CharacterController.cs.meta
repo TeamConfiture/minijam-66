@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 4cf594fe9132a1943b91063708e3c481
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bulletR: {instanceID: 0}
+  - bulletB: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - lifeLost: {instanceID: 0}
+  - health: {instanceID: 0}
+  - clip: {fileID: 8300000, guid: 6209b897acd671e4eb9f801f3bfd58fd, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
